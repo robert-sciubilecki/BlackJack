@@ -24,7 +24,7 @@ def populate_deck(faces):
 def create_deck():
     populate_deck([['Ace', 11]])
     populate_deck([['King', 10], ['Queen', 10], ['Jack', 10]])
-    for num in range(2, 11):
+    for num in range(10, 11):
         populate_deck([[num, num]])
 
 
@@ -85,17 +85,20 @@ def play_game():
     current_hand_value = 0
     playing = True
     while playing:
+        current_hand_value = calculate_hand_value(player_hand)
+        if current_hand_value == 21:
+            print('🏆 Black Jack, you win\n')
+            playing = False
+            replay()
+            break
         another = input("Type 'y' to get another card, type 'n' to pass: ").lower()
         if another == 'y':
             clear()
             player_hand.append(deal_card(1))
             display_player_summary('Your', player_hand)
             current_hand_value = calculate_hand_value(player_hand)
-            if current_hand_value == 21:
-                print('🏆 Black Jack, you win\n')
-                playing = False
-                replay()
-            elif current_hand_value > 21:
+
+            if current_hand_value > 21:
                 print('😔 Your hand is over 21 in total. You loose\n')
                 playing = False
                 replay()
