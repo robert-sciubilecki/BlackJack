@@ -1,5 +1,6 @@
 import random
 import os
+from art import logo
 
 cards_dict = {}
 deck = []
@@ -11,6 +12,11 @@ def clear():
 
 clear()
 
+
+print(logo)
+input('Press any key to start')
+
+clear()
 
 def populate_deck(faces):
     colors = ['Spades ♠️', 'Hearts ♥️', 'Diamonds 🔶', 'Clubs ♣️']
