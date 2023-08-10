@@ -24,7 +24,7 @@ def populate_deck(faces):
 def create_deck():
     populate_deck([['Ace', 11]])
     populate_deck([['King', 10], ['Queen', 10], ['Jack', 10]])
-    for num in range(10, 11):
+    for num in range(2, 11):
         populate_deck([[num, num]])
 
 
