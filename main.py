@@ -67,7 +67,14 @@ def display_player_summary(player, hand):
     print(f"{emoji} {player} hand: {cards_on_hand}.\nTotal value of {player} cards: {cards_value}\n")
 
 
+computer_hand = []
+player_hand = []
+
+
 def init():
+    global computer_hand
+    global player_hand
+
     create_deck()
 
     computer_hand = deal_card(2)
@@ -76,12 +83,12 @@ def init():
     display_player_summary('Your', player_hand)
     print('Computer has also 2 cards. You only see the first one.\n')
     display_player_summary('Computer', [computer_hand[0]])
-    play_game(computer_hand, player_hand)
+    play_game()
 
 
-def play_game(comp_hand, pl_hand):
-    computer_hand = comp_hand
-    player_hand = pl_hand
+def play_game():
+
+    # current_hand_value = 0
     playing = True
     while playing:
         current_hand_value = calculate_hand_value(player_hand)
