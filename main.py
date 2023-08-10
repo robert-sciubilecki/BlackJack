@@ -12,11 +12,11 @@ def clear():
 
 clear()
 
-
 print(logo)
-input('Press any key to start')
+input('Press ENTER to start')
 
 clear()
+
 
 def populate_deck(faces):
     colors = ['Spades ♠️', 'Hearts ♥️', 'Diamonds 🔶', 'Clubs ♣️']
@@ -88,13 +88,12 @@ def init():
 
 def play_game():
 
-    current_hand_value = 0
+    # current_hand_value = 0
     playing = True
     while playing:
         current_hand_value = calculate_hand_value(player_hand)
         if current_hand_value == 21:
             print('🏆 Black Jack, you win\n')
-            playing = False
             replay()
             break
         another = input("Type 'y' to get another card, type 'n' to pass: ").lower()
